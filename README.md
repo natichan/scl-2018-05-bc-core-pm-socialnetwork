@@ -8,7 +8,7 @@ Determinamos que los principales usuarios del producto son los veganos, vegetari
 
 Las principales funcionalidades del producto y nuestra prioridad es brindar un medio de comunicación eficaz, reunir a las personas que llevan este estilo de vida y demostrar que no son minoría, que existe una gran comunidad que necesita ser escuchada. Para verificar el producto y determinar si está cumpliendo con la resolución de los problemas realizamos un testing de usabilidad que nos guiará en las mejoras y nos ratificará si cumple con sus expectativas.
 
-* link Prototipo de alta fidelidad
+* link Prototipo de alta fidelidad [marvel](colocar el link de los prototipos).
 * Link de carpeta que contiene: [benckmark, guia de entrevistas, audios, diagrama de afinidad, Declaración de consentimiento, testing](https://drive.google.com/drive/folders/10PC7sWxsGPlAZs1SE-s6-VyifwZFBQRc)
 
 * [Trello](https://trello.com/b/ZQH5Wn1m/proyecto-3)
