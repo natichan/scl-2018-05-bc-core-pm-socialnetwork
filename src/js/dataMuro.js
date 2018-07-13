@@ -16,8 +16,13 @@ function postingMessages(message){
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
-    const likeHeart = document.createElement('i');
+    // creo los iconos que irán en la publicación
+    const likeHeart = document.createElement('i'); 
     const iconHeart = document.createTextNode('favorite_border')
+    const editButton = document.createElement('i');
+    const iconEdit = document.createTextNode('favorite_border')
+    const commentButton = document.createElement('i');
+    const iconComment = document.createTextNode('delete_forever')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever')
 
@@ -25,14 +30,20 @@ function postingMessages(message){
     paragraph.setAttribute('class', 'col s12') // atributos de mi parrafo
     deleteButton.setAttribute('id', 'delete');
     deleteButton.setAttribute('class', 'btn');
-    likeHeart.setAttribute('class', 'material-icons');
-    deleteButton.setAttribute('class', 'material-icons');
+    likeHeart.setAttribute('class', 'material-icons btn');
+    deleteButton.setAttribute('class', 'material-icons btn');
+    editButton.setAttribute('class', 'material-icons btn');
+    commentButton.setAttribute('class', 'material-icons btn');
 
     // asigno los hijos al padre
+    commentButton.appendChild(iconComment);
+    editButton.appendChild(iconEdit);
     likeHeart.appendChild(iconHeart);
     deleteButton.appendChild(iconTrash);
     paragraph.appendChild(textPost);
     postingUser.appendChild(paragraph);
+    postingUser.appendChild(commentButton);
+    postingUser.appendChild(editButton);
     postingUser.appendChild(likeHeart);
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
