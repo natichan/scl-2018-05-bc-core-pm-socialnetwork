@@ -9,6 +9,29 @@
         <title>Document</title>
     </head>
     <body>
+        <div class="container">
+            <div class="row">
+>
+        <input id="email2" type="email"placeholder="Correo electronico">
+        <input id="password2" type="password" placeholder="Contraseña">
+        <button onclick="IniciarSesion()">Iniciar Sesión</button>
+
+        </div>
+        </div>
+
+            <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+            <script>
+              // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyBd5aPn_63VSjw-JftcStTGTiEkgW_TGbI",
+                authDomain: "proyecto3redsocial.firebaseapp.com",
+                databaseURL: "https://proyecto3redsocial.firebaseio.com",
+                projectId: "proyecto3redsocial",
+                storageBucket: "proyecto3redsocial.appspot.com",
+                messagingSenderId: "36811154021"
+              };
+              firebase.initializeApp(config);
+            </script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>            
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <script src="/src/js/data.js"></script>
