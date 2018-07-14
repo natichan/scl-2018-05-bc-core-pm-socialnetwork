@@ -12,15 +12,38 @@
 
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col s12" >
-                <input id="email2" type="email" placeholder="Correo electronico">
-                <input id="password2" type="password" placeholder="Contraseña">
-                <button onclick="IniciarSesion()">Iniciar Sesión</button>
-                </div>
-            </div>
-        </div>
+        <div class="container ">
+            <div class="row  ">
+                <div class="input-field col s12 m12 l12 center z-depth-4 card-panel">
+                    <img class="logo" src="/src/img/logo.png" alt="logo">
+                
+                    <div class="row ">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">@</i>
+                            <input id="email2" type="email" class="validate">
+                            <label for="email">Correo electronico</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s12 m12 l12 ">
+                            <i class="material-icons prefix ">lock_open</i>
+                            <input id="password2" type="password" class="validate ">
+                            <label for="icon_password ">Contraseña</label>
+                        </div>
+                    </div>
+                
+                    <div class="row "> 
+                        <div class="input-field col s12 m12 l12 "> 
+                            <button class="waves-effect light-green darken-1 btn-large " onclick="iniciarSesion()">Iniciar Sesión</button>
+                        </div>
+                    </div>
+                    <div class="input-field col s12 m12 l12">
+                        <p class="margin medium-small"></p>
+                        <a  id="regist" href="file:///home/laboratoria/Escritorio/proyectos/scl-2018-05-bc-core-pm-socialnetwork/src/html/indexResgistro.html">Registratre</a>
+                    </div>
+                </div>    
+            </div> 
+        </div> 
         <div id="pag">
         </div>
             <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
