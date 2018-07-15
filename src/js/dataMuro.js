@@ -18,7 +18,7 @@ function postingMessages(message){
 
     // creo los iconos que irán en la publicación
     const likeHeart = document.createElement('i'); // creo un elemento icono
-    const iconHeart = document.createTextNode('favorite_border') // le digo que es un texto para decirle que icono es  
+    const iconHeart = document.createTextNode('favorite') // le digo que es un texto para decirle que icono es  
     const editButton = document.createElement('i');
     const iconEdit = document.createTextNode('border_color')
     const commentButton = document.createElement('i');
@@ -27,13 +27,13 @@ function postingMessages(message){
     const iconTrash = document.createTextNode('delete_forever')
 
     // atributos de mis elementos
-    paragraph.setAttribute('class', 'col s12') 
     deleteButton.setAttribute('id', 'delete');
     deleteButton.setAttribute('class', 'btn');
-    likeHeart.setAttribute('class', 'material-icons btn btn-flat');
-    deleteButton.setAttribute('class', 'material-icons btn btn-flat');
-    editButton.setAttribute('class', 'material-icons btn btn-flat');
-    commentButton.setAttribute('class', 'material-icons btn btn-flat');
+    likeHeart.setAttribute('class', 'material-icons btn-flat');
+    deleteButton.setAttribute('class', 'material-icons btn-flat');
+    editButton.setAttribute('class', 'material-icons btn-flat ');
+    commentButton.setAttribute('class', 'material-icons btn-flat ');
+    postingUser.setAttribute('class', 'publicationDom')
 
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
     commentButton.appendChild(iconComment); 
@@ -48,6 +48,9 @@ function postingMessages(message){
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
 
+    likeHeart.addEventListener("click", ()=>{
+        likeHeart.classList.add("red-text");
+    });
 }
 // función agregar publicación
 const postBox = document.getElementById("postBox").value = ''; // mantener el input de publicación vacío
@@ -79,11 +82,5 @@ function createMessageForEmptyField() {
 }
 
 
-/* Ejemplo para agregar efecto al hacer click en el icono de me gusta
-    heart.addEventListener("click", ()=>{
-        heart.classList.toggle("red");
-    });
-    trash.addEventListener("click", () => {
-       cont.removeChild(newComments);
-}); */
+
 
