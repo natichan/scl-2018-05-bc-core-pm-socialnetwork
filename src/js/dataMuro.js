@@ -52,9 +52,13 @@ function postingMessages(message){
 
 function addPost() {
     const posts = document.getElementById('postBox').value;
+    if(posts === ""){
+        alert("Ups, intentalo de nuevo y publica tu mensaje")
+    } else {
     document.getElementById("postBox").value = "";
     postingMessages(posts);
     //addPostToLocalStorage(posts);
+    }
 }
 
 
