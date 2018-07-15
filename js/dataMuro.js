@@ -1,7 +1,5 @@
 window.onload = () => {
     eventListeners();
-    postingMessages();
-    deletePost();
 };
 
 const postingContainer = document.getElementById('publications'); // contenedor de publicaciones
