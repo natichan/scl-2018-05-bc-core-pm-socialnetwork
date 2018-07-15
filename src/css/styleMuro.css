@@ -4,7 +4,18 @@ img{
 }
 nav{
     background-color: #6ea328;
+    margin-bottom: 5%;
 }
 body, .sidenav{
     background-color: #e2ecd4;
+}
+main{
+    padding-top: 10%;
+    border: solid gray 0.1em;
+}
+.publicationDom{
+    margin-top: 2%;
+    display: block;
+    border: solid gray 0.1em;
+    padding: 5%;
 }
