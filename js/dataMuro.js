@@ -1,5 +1,7 @@
 window.onload = () => {
     eventListeners();
+    postingMessages();
+    deletePost();
 };
 
 const postingContainer = document.getElementById('publications'); // contenedor de publicaciones
@@ -68,11 +70,10 @@ function addPost() {
 // función eliminar publicación
 function deletePost(element) {
     if(element.target.id === 'delete') {
-         element.target.parentElement.remove();
-         //deletePostLocalStorage(element.target.parentElement.innerText);   
+         element.target.parentElement.remove();  
     }
 }
-
+// función para crear mensaje de advertencia para que incluya texto en el input
 function createMessageForEmptyField() {
     const message = document.createElement('a');
     message.setAttribute("id", "answer");
