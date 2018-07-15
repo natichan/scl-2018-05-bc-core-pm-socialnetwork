@@ -1,0 +1,10 @@
+img{
+    height: 9%;
+    width: 9%;
+}
+nav{
+    background-color: #6ea328;
+}
+body, .sidenav{
+    background-color: #e2ecd4;
+}

@@ -17,26 +17,26 @@ function postingMessages(message){
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
 
     // creo los iconos que irán en la publicación
-    const likeHeart = document.createElement('i'); 
-    const iconHeart = document.createTextNode('favorite_border')
+    const likeHeart = document.createElement('i'); // creo un elemento icono
+    const iconHeart = document.createTextNode('favorite_border') // le digo que es un texto para decirle que icono es  
     const editButton = document.createElement('i');
-    const iconEdit = document.createTextNode('favorite_border')
+    const iconEdit = document.createTextNode('border_color')
     const commentButton = document.createElement('i');
-    const iconComment = document.createTextNode('delete_forever')
+    const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever')
 
-    // atributos
-    paragraph.setAttribute('class', 'col s12') // atributos de mi parrafo
+    // atributos de mis elementos
+    paragraph.setAttribute('class', 'col s12') 
     deleteButton.setAttribute('id', 'delete');
     deleteButton.setAttribute('class', 'btn');
-    likeHeart.setAttribute('class', 'material-icons btn');
-    deleteButton.setAttribute('class', 'material-icons btn');
-    editButton.setAttribute('class', 'material-icons btn');
-    commentButton.setAttribute('class', 'material-icons btn');
+    likeHeart.setAttribute('class', 'material-icons btn btn-flat');
+    deleteButton.setAttribute('class', 'material-icons btn btn-flat');
+    editButton.setAttribute('class', 'material-icons btn btn-flat');
+    commentButton.setAttribute('class', 'material-icons btn btn-flat');
 
-    // asigno los hijos al padre
-    commentButton.appendChild(iconComment);
+    // asigno los hijos al padre. Los entre () son los hijos del primer elemento
+    commentButton.appendChild(iconComment); 
     editButton.appendChild(iconEdit);
     likeHeart.appendChild(iconHeart);
     deleteButton.appendChild(iconTrash);
@@ -49,24 +49,33 @@ function postingMessages(message){
     postingContainer.appendChild(postingUser);
 
 }
-
+// función agregar publicación
+const postBox = document.getElementById("postBox").value = ''; // mantener el input de publicación vacío
 function addPost() {
     const posts = document.getElementById('postBox').value;
-    if(posts === ""){
-        alert("Ups, intentalo de nuevo y publica tu mensaje")
+    if(posts === ''){ // si ingresa un campo vacio que no se produzca
+        // que se active recordar ingresar texto
+        createMessageForEmptyField();
     } else {
-    document.getElementById("postBox").value = "";
+    document.getElementById("postBox").value = '';
     postingMessages(posts);
     //addPostToLocalStorage(posts);
     }
 }
-
-
+// función eliminar publicación
 function deletePost(element) {
     if(element.target.id === 'delete') {
          element.target.parentElement.remove();
          //deletePostLocalStorage(element.target.parentElement.innerText);   
     }
+}
+
+function createMessageForEmptyField() {
+    const message = document.createElement('a');
+    message.setAttribute("id", "answer");
+    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto o subir imagen')
+    message.appendChild(textAnswer);
+    postingContainer.appendChild(message);
 }
 
 
