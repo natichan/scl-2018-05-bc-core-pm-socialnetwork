@@ -1,3 +1,7 @@
+h4{
+    text-align: center; /* este es el estilo para titulo de hoja editar comentarios */
+    position: relative;
+}
 img{
     height: 80%;
 }
