@@ -1,6 +1,5 @@
 img{
-    height: 9%;
-    width: 9%;
+    height: 80%;
 }
 nav{
     background-color: #6ea328;
@@ -18,4 +17,8 @@ main{
     display: block;
     border: solid gray 0.1em;
     padding: 5%;
+}
+.logo-img {
+    max-height: 64px!important;
+    padding: 15px 0!important;
 }
