@@ -10,12 +10,15 @@ eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento borrar local storage
      //document.addEventListener('DOMContentLoaded', savedInlocalStorage); // ejecutar evento de traer los elementos guardados en el dom
+     // Editar tareas
+     document.addEventListener('click', editarTarea);
 }
 
 function postingMessages(message){
     // DOM
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
+    const imagen = document.createElement("img");  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
 
     // creo los iconos que irán en la publicación
@@ -36,6 +39,7 @@ function postingMessages(message){
     editButton.setAttribute('class', 'material-icons btn-flat ');
     commentButton.setAttribute('class', 'material-icons btn-flat ');
     postingUser.setAttribute('class', 'publicationDom')
+    imagen.setAttribute('class', 'publicationDom');
 
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
     commentButton.appendChild(iconComment); 
@@ -73,6 +77,12 @@ function deletePost(element) {
          element.target.parentElement.remove();  
     }
 }
+//funcion editar post
+function editarTarea(element) {
+    if(element.target.id === 'delete') {
+         element.target.parentElement.remove();  
+    }
+}
 // función para crear mensaje de advertencia para que incluya texto en el input
 function createMessageForEmptyField() {
     const message = document.createElement('a');
@@ -82,6 +92,23 @@ function createMessageForEmptyField() {
     postingContainer.appendChild(message);
 }
 
-
+//funcion para cargar imagen
+function init() {
+    var inputFile = document.getElementById('inputFile1');
+    inputFile.addEventListener('change', mostrarImagen, false);
+  }
+  
+  function mostrarImagen(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = document.getElementById('img1');
+      img.src= event.target.result;
+      
+    }
+    reader.readAsDataURL(file);
+  }
+  
+  window.addEventListener('load', init, false);
 
 
