@@ -1,6 +1,7 @@
 function registrar(){
   const email = document.getElementById('email2').value;
   const password= document.getElementById('password2').value;
+
   firebase.auth().createUserWithEmailAndPassword(email, password)
 
   .then(function(){
