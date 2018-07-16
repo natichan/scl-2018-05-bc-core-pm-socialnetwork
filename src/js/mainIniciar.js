@@ -19,7 +19,7 @@ function observ(){
     if (user) {
       // El usuario ha iniciado sesión.
       console.log( ' El usuario existe');
-        ver()
+      cerrarSesion()
       var displayName = user.displayName;
       var email = user.email;
       console.log(user.emailVerified)
@@ -37,19 +37,20 @@ function observ(){
 }
 observ();
 // funcion para verificar si el usuario inicio sesion correctamente 
-function ver(){
+/*function ver(){
   let pag = document.getElementById('pag');
   pag.innerHTML = `
   <p> Iniciaste Sesión </p>
   <button onclick="cerrarSesion()">Cerrar Sesión</button>
   `;
-}
+
+}*/
 //  para autenticar cerrrar sesion 
 function cerrarSesion(){
   firebase.auth().signOut()
   .then(function(){
     console.log('Cerrando sesión....');
-    pag.innerHTML= '';
+  
   })
   .catch(function(error){
     console.log(error);
