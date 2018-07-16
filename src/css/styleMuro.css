@@ -1,4 +1,4 @@
-img{
+#isotipo{
     height: 80%;
 }
 nav{
@@ -9,7 +9,7 @@ body, .sidenav{
     background-color: #e2ecd4;
 }
 main{
-    padding-top: 10%;
+    padding-top: 5%;
     border: solid gray 0.1em;
 }
 .publicationDom{
