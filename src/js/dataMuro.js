@@ -26,8 +26,8 @@ function postingMessages(message){
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
 
-    enlaceEdit.href = '../html/modificar_comentario.html';// aqui le digo al enlace que me va a redireccionar a comentario.html
-
+    enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html';// aqui le digo al enlace que me va a redireccionar a comentario.html
+    //se enlaza boton de edicion con html donde se editara comentario. 
     // atributos de mis elementos    
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
     deleteButton.setAttribute('class', 'material-icons btn-flat delete');
@@ -48,6 +48,8 @@ function postingMessages(message){
     postingUser.appendChild(likeHeart);
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
+    enlaceEdit.appendChild(iconEdit);
+    editButton.appendChild(enlaceEdit);
     
     // evento para cambiar color de icono corazón
     likeHeart.addEventListener("click", () => {
