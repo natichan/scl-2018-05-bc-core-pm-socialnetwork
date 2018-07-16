@@ -1,19 +1,27 @@
 body{
-    padding: 2em;
     background-color: rgba(128, 128, 128, 0.267)
 
 }
-
-.btn-large{
+.container{
+    background-color: #e2ecd4;
+}
+.btnIniciar{
     width: 100%;
-    background-color: #80A534;
+    background-color: #6ea328 !important;
+}
+
+.row{
+    margin: 0% !important;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+.btnFace{
+    background-color: #3b5998 !important;
+}
+.btnGoogle{
+    background-color: #db4a39 !important;
 }
 .logo{
-    margin: 2em;
-    width: 70%;
-    height: auto;
+    margin-top: 2em;
 }
-.row{
-    margin: 0%;
-    padding: 0%;
-}
+

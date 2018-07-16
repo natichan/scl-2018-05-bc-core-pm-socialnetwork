@@ -1,4 +1,20 @@
+body{
+    background-color: rgba(128, 128, 128, 0.267);
+    font-family: sans-serif;
+
+}
 .btnRegist{
     width: 100%;
-    background-color: #80A534;
+    background-color: #6ea328 !important;
+}
+.row{
+    margin: 0% !important;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+.condition{
+    color: #6ea328 !important;
+}
+.logo{
+    margin-top: 2em;
 }

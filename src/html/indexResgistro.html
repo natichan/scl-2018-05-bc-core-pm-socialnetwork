@@ -16,6 +16,19 @@
                 <div class="input-field col s12 m12 l12 center z-depth-4 card-panel">
                     <img class="logo" src ="/src/img/logo.png" alt="logo">
 
+                    <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">person</i>
+                                <input  id="first_name" type="text" class="validate">
+                                <label for="first_name">Nombre</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Apellido</label>
+                            </div>
+ 
+                    </div>
+
                     <div class="row ">
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">@</i>
@@ -36,11 +49,21 @@
                         <div class="input-field col s12 m12 l12 "> 
                             <button class="waves-effect btn-small btnRegist" onclick="registrar()">Registrate</button>
                         </div>
+                        <div class="input-field col s12 m12 l12 ">
+                            <p>
+                                <label>
+                                    <input type="checkbox" class="filled-in left-align " />
+                                    <span>Al Registrate aceptas todas nuestras </span>
+                                    <a  class="center-align condition" id="regist" href="/src/html/indexResgistro.html">Confidiciones</a>
+                                </label>
+                            </p>
+                        </div>
                     </div>
-
+ 
                 </div>    
             </div> 
         </div> 
+
         <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
         <script>
             // Initialize Firebase
