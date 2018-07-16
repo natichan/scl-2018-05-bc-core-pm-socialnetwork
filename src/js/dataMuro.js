@@ -69,22 +69,24 @@ function addPost() {
 // función eliminar publicación DOM
 function deletePost(element) {
     // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
-    if(element.target.className === 'material-icons btn-flat delete') {
+    if(element.target.className === 'material-icons btn-flat delete') 
+    if(window.confirm("¿Estás segur@ de eliminar?")){
         // me refiero al elemento padre y lo elimino 
         element.target.parentElement.remove();
+        //deletePostLocalStorage(element.target.parentElement.innerText);
     }
 }
 //funcion editar post
 function editarTarea(element) {
     if(element.target.id === 'delete') {
-         element.target.parentElement.remove();  
+         element.target.parentElement.remove(); 
     }
 }
 // función para crear mensaje de advertencia para que incluya texto en el input
 function createMessageForEmptyField() {
     const message = document.createElement('a');
-    message.setAttribute("id", "answer");
-    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto o subir imagen')
+    message.setAttribute("id", "answer");tareas
+    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
     message.appendChild(textAnswer);
     postingContainer.appendChild(message);
 }
@@ -130,6 +132,4 @@ function init() {
   }
   
   window.addEventListener('load', init, false);
-
-
 
