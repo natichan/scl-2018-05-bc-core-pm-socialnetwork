@@ -17,13 +17,16 @@ function postingMessages(message){
 
     // creo los iconos que irán en la publicación
     const likeHeart = document.createElement('i'); // creo un elemento icono
-    const iconHeart = document.createTextNode('favorite') // le digo que es un texto para decirle que icono es  
+    const iconHeart = document.createTextNode('favorite'); // le digo que es un texto para decirle que icono es  
     const editButton = document.createElement('i');
-    const iconEdit = document.createTextNode('border_color')
+    const iconEdit = document.createTextNode('border_color');
+    const enlaceEdit= document.createElement('a');
     const commentButton = document.createElement('i');
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
-    const iconTrash = document.createTextNode('delete_forever')
+    const iconTrash = document.createTextNode('delete_forever');
+
+    enlaceEdit.href = '../html/modificar_comentario.html';// aqui le digo al enlace que me va a redireccionar a comentario.html
 
     // atributos de mis elementos    
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
