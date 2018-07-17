@@ -23,15 +23,18 @@ function postingMessages(message){
     const counterNumber = document.createTextNode('')
     const editButton = document.createElement('i');
     const iconEdit = document.createTextNode('border_color');
-    const enlaceEdit= document.createElement('a');
+    const enlaceEdit= document.createElement('a');//se crea enlace a modificar comentario
     const commentButton = document.createElement('i');
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
 
-    enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html';// aqui le digo al enlace que me va a redireccionar a comentario.html
-    //se enlaza boton de edicion con html donde se editara comentario.
-     
+
+   
+
+    enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
+    //se enlaza boton de edicion con html donde se editara comentario. 
+
     // atributos de mis elementos    
     counter.setAttribute('class', 'showCounter')
     counter.setAttribute('id', 'counterHearts');
@@ -42,13 +45,12 @@ function postingMessages(message){
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
     imagen.setAttribute('class', 'publicationDom');
-   
- 
+
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
     counter.appendChild(counterNumber);
     likeHeart.appendChild(counter);
     commentButton.appendChild(iconComment); 
-    editButton.appendChild(iconEdit);
+
     likeHeart.appendChild(iconHeart);
     deleteButton.appendChild(iconTrash);
     paragraph.appendChild(textPost);
