@@ -68,7 +68,7 @@ function postingMessages(message){
             if(localStorage.setItem("counterHearts",JSON.stringify("0"))){ // guardo la llave del contador y el valor 0
             document.getElementById("counterHearts").innerHTML="Corazones: "+localStorage.getItem("counterHearts"); // escribir lo guardado en el local storage
             }
-        }       
+        } // función llamar contadores más sumar nuevos      
         function sumHearts(){
             localStorage.setItem("counterHearts",Number(localStorage.getItem("counterHearts"))+1); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
             document.getElementById("counterHearts").innerHTML = "Corazones: "+ localStorage.getItem("counterHearts"); // escribir los datos con contador nuevo
