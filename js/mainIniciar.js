@@ -19,6 +19,7 @@ function observ(){
     if (user) {
       // El usuario ha iniciado sesión.
       console.log( ' El usuario existe');
+      Redirect()
       //ver()
       var displayName = user.displayName;
       var email = user.email;
@@ -62,6 +63,7 @@ function cerrarSesion(){
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
+      Redirect()
       // ...
     }).catch(function(error) {
       // Handle Errors here.
@@ -83,6 +85,7 @@ function facebookLoginWithFirebase(){
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+    Redirect()
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -95,3 +98,6 @@ function facebookLoginWithFirebase(){
     // ...
   });
   }
+  function Redirect() {
+    window.location="../src/indexMuro.html";
+ }
