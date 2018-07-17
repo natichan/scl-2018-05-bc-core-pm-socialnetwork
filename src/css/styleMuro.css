@@ -1,9 +1,9 @@
+#isotipo{
+  height: 80%;
+}
 h4{
     text-align: center; /* este es el estilo para titulo de hoja editar comentarios */
     position: relative;
-}
-img{
-    height: 80%;
 }
 nav{
     background-color: #6ea328;
@@ -13,7 +13,7 @@ body, .sidenav{
     background-color: #e2ecd4;
 }
 main{
-    padding-top: 10%;
+    padding-top: 5%;
     border: solid gray 0.1em;
 }
 .publicationDom{
@@ -21,8 +21,4 @@ main{
     display: block;
     border: solid gray 0.1em;
     padding: 5%;
-}
-.logo-img {
-    max-height: 64px!important;
-    padding: 15px 0!important;
 }
