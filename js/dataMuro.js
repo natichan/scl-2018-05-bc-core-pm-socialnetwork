@@ -15,18 +15,20 @@ function postingMessages(message){
     const paragraph = document.createElement('p'); // creo un elemento parrafo
     const imagen = document.createElement("img");  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
-//(document.getElementById("decrementar").addEventListener("click", decrementar);)
+
     // creo los iconos que irán en la publicación
     const likeHeart = document.createElement('i'); // creo un elemento icono
     const iconHeart = document.createTextNode('favorite') // le digo que es un texto para decirle que icono es
-    
     const editButton = document.createElement('i');
-    const iconEdit = document.createTextNode('border_color')
+    const iconEdit = document.createTextNode('border_color');
+    const enlaceEdit= document.createElement('a');
     const commentButton = document.createElement('i');
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
-    const iconTrash = document.createTextNode('delete_forever')
+    const iconTrash = document.createTextNode('delete_forever');
 
+    enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html';// aqui le digo al enlace que me va a redireccionar a comentario.html
+    //se enlaza boton de edicion con html donde se editara comentario. 
     // atributos de mis elementos    
     likeHeart.setAttribute('id', 'heart');
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
@@ -49,6 +51,9 @@ function postingMessages(message){
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
 
+    enlaceEdit.appendChild(iconEdit);
+    editButton.appendChild(enlaceEdit);
+    
     // evento para cambiar color de icono corazón
     likeHeart.addEventListener("click", () => {
         likeHeart.classList.add("red-text");
@@ -63,7 +68,7 @@ function postingMessages(message){
             if(localStorage.setItem("counterHearts",JSON.stringify("0"))){ // guardo la llave del contador y el valor 0
             document.getElementById("counterHearts").innerHTML="Corazones: "+localStorage.getItem("counterHearts"); // escribir lo guardado en el local storage
             }
-        } //       
+        }       
         function sumHearts(){
             localStorage.setItem("counterHearts",Number(localStorage.getItem("counterHearts"))+1); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
             document.getElementById("counterHearts").innerHTML = "Corazones: "+ localStorage.getItem("counterHearts"); // escribir los datos con contador nuevo
@@ -135,15 +140,15 @@ function getPostInLocalStorage() {
 
 //funcion para cargar imagen
 function init() {
-    var inputFile = document.getElementById('inputFile1');
+    let inputFile = document.getElementById('inputFile1');
     inputFile.addEventListener('change', mostrarImagen, false);
   }
   
   function mostrarImagen(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
+    let file = event.target.files[0];
+    let reader = new FileReader();
     reader.onload = function(event) {
-      var img = document.getElementById('img1');
+      let img = document.getElementById('img1');
       img.src= event.target.result;
       
     }
@@ -162,18 +167,3 @@ function showLocalStorage() {
         postingMessages(message);      
     });
   };
-
-/*  
-  function countHearts(){  
-    const counter = document.createElement('p') 
-    const counterNumber = document.createTextNode('0')
-    counter.setAttribute('id', 'counterHearts');
-    counter.appendChild(counterNumber);
-    likeHeart.appendChild(counter);
-    postingUser.appendChild(counter);
-        var a = 0;
-        function myFunction() {
-        a = a + 1;
-        document.getElementById("counterHearts").textContent = a;
-        }
-    } */

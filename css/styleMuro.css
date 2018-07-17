@@ -1,5 +1,9 @@
 #isotipo{
-    height: 80%;
+  height: 80%;
+}
+h4{
+    text-align: center; /* este es el estilo para titulo de hoja editar comentarios */
+    position: relative;
 }
 nav{
     background-color: #6ea328;
