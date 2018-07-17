@@ -1,5 +1,5 @@
 #isotipo{
-  height: 80%;
+  height: 85%;
 }
 h4{
     text-align: center; /* este es el estilo para titulo de hoja editar comentarios */
@@ -7,18 +7,18 @@ h4{
 }
 nav{
     background-color: #6ea328;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 body, .sidenav{
-    background-color: #e2ecd4;
+    background-color: #dfe7d5;
 }
 main{
     padding-top: 5%;
-    border: solid gray 0.1em;
 }
 .publicationDom{
-    margin-top: 2%;
+    margin-top: 4%;
     display: block;
-    border: solid gray 0.1em;
     padding: 5%;
+    color: rgb(44, 40, 40);
+    background-color: #f5f5f5;
 }
