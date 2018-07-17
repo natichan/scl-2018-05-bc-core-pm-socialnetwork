@@ -19,7 +19,7 @@ function observ(){
     if (user) {
       // El usuario ha iniciado sesión.
       console.log( ' El usuario existe');
-        ver()
+      //ver()
       var displayName = user.displayName;
       var email = user.email;
       console.log(user.emailVerified)
@@ -32,24 +32,23 @@ function observ(){
     } else {
       // El usuario está desconectado
       console.log(' El usuario no existe');
+     cerrarSesion();
     }
   });
 }
-observ();
-// funcion para verificar si el usuario inicio sesion correctamente 
-function ver(){
-  let pag = document.getElementById('pag');
-  pag.innerHTML = `
-  <p> Iniciaste Sesión </p>
-  <button onclick="cerrarSesion()">Cerrar Sesión</button>
-  `;
-}
+
+/// funcion para verificar si el usuario inicio sesion correctamente 
+/*function ver(){
+console.log("pulsaste el botton cerrar sesión");
+
+}*/
+
 //  para autenticar cerrrar sesion 
 function cerrarSesion(){
   firebase.auth().signOut()
   .then(function(){
     console.log('Cerrando sesión....');
-    pag.innerHTML= '';
+  
   })
   .catch(function(error){
     console.log(error);
@@ -63,6 +62,7 @@ function googleLoginWithFirebase(){
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+    console.log(result);
     // ...
   }).catch(function(error) {
     // Handle Errors here.
