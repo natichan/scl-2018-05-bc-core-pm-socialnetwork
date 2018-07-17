@@ -22,3 +22,6 @@ main{
     color: rgb(44, 40, 40);
     background-color: #f5f5f5;
 }
+a, i{
+    color: black;
+}
