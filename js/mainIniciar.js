@@ -19,7 +19,7 @@ function observ(){
     if (user) {
       // El usuario ha iniciado sesión.
       console.log( ' El usuario existe');
-      ver()
+      //ver()
       var displayName = user.displayName;
       var email = user.email;
       console.log(user.emailVerified)
