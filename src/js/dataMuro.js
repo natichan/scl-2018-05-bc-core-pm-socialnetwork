@@ -28,7 +28,7 @@ function postingMessages(message){
     const iconTrash = document.createTextNode('delete_forever')
 
     // atributos de mis elementos    
-    
+    likeHeart.setAttribute('id', 'heart');
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
     deleteButton.setAttribute('class', 'material-icons btn-flat delete');
     editButton.setAttribute('class', 'material-icons btn-flat ');
@@ -52,7 +52,22 @@ function postingMessages(message){
     // evento para cambiar color de icono corazón
     likeHeart.addEventListener("click", () => {
         likeHeart.classList.add("red-text");
-        //countHearts();
+        const counter = document.createElement('p')
+        const counterNumber = document.createTextNode('')
+        counter.setAttribute('id', 'counterHearts');
+        counter.appendChild(counterNumber);
+        likeHeart.appendChild(counter);
+        postingUser.appendChild(counter);
+        document.getElementById("heart").addEventListener("click", sumHearts);
+        function counterLikes(){
+            if(localStorage.setItem("counterHearts",JSON.stringify("0"))){ // guardo la llave del contador y el valor 0
+            document.getElementById("counterHearts").innerHTML="Corazones: "+localStorage.getItem("counterHearts"); // escribir lo guardado en el local storage
+            }
+        } //       
+        function sumHearts(){
+            localStorage.setItem("counterHearts",Number(localStorage.getItem("counterHearts"))+1); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
+            document.getElementById("counterHearts").innerHTML = "Corazones: "+ localStorage.getItem("counterHearts"); // escribir los datos con contador nuevo
+        }
     });
 };
 
@@ -77,8 +92,7 @@ function deletePost(element) {
     if(window.confirm("¿Estás segur@ de eliminar?")){ 
         // me refiero al elemento padre y lo elimino 
         element.target.parentElement.remove();
-        //localStorage.removeItem(element.target.parentElement.innerText);
-        //deletePostLocalStorage(element.target.parentElement.innerText);
+        deletePostLocalStorage(element.target.parentElement.innerText);
     }
 };
 //funcion editar post
@@ -115,10 +129,6 @@ function getPostInLocalStorage() {
         // devolver los valores del post guardados en el localStorage
          posts = JSON.parse(localStorage.getItem('posts'));
          //console.log(posts); // muestra las publicaciones guardadas en un array
-     /*     posts.forEach(function(message) {
-            //console.log(message);
-            postingMessages(message);    
-         }) */
     }
     return posts;
 };
@@ -144,18 +154,16 @@ function init() {
 
 // Mostrar datos de localStorage en la página
 function showLocalStorage() {
-
     let posts;
     posts = getPostInLocalStorage();
-    console.log(posts);
+    //console.log(posts);
     posts.forEach(function(message) {
         //console.log(message);
         postingMessages(message);      
     });
   };
 
-  
-/* 
+/*  
   function countHearts(){  
     const counter = document.createElement('p') 
     const counterNumber = document.createTextNode('0')
@@ -163,9 +171,9 @@ function showLocalStorage() {
     counter.appendChild(counterNumber);
     likeHeart.appendChild(counter);
     postingUser.appendChild(counter);
-    var a = 0;
-    function myFunction() {
-      a = a + 1;
-      document.getElementById("counterHearts").textContent = a;
-    }
-    } */ 
+        var a = 0;
+        function myFunction() {
+        a = a + 1;
+        document.getElementById("counterHearts").textContent = a;
+        }
+    } */
