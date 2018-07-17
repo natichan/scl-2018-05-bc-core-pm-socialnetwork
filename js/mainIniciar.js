@@ -39,10 +39,8 @@ observ();
 // funcion para verificar si el usuario inicio sesion correctamente 
 function ver(){
 
-  document.getElementById("cerrarSesion").addEventListener("click", function(){
     cerrarSesion()
-});
-  addEventListener
+
 
 }
 //  para autenticar cerrrar sesion 
