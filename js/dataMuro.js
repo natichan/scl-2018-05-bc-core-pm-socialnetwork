@@ -13,7 +13,7 @@ const postingContainer = document.getElementById('publications'); // contenedor 
 function postingMessages(message){
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
-    const imagen = document.createElement("img");  //creo un elemento imagen
+    const imagen = document.createElement('img');  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
 
     // creo los iconos que irán en la publicación
@@ -55,28 +55,22 @@ function postingMessages(message){
     editButton.appendChild(enlaceEdit);
     
     // evento para cambiar color de icono corazón
-    likeHeart.addEventListener("click", () => {
-        likeHeart.classList.add("red-text");
+    
+    likeHeart.addEventListener('click', () => {
+        likeHeart.classList.add('red-text');
         const counter = document.createElement('p')
         const counterNumber = document.createTextNode('')
         counter.setAttribute('id', 'counterHearts');
         counter.appendChild(counterNumber);
         likeHeart.appendChild(counter);
         postingUser.appendChild(counter);
-        document.getElementById("heart").addEventListener("click", sumHearts);
-        function counterLikes(){
-            if(localStorage.setItem("counterHearts",JSON.stringify("0"))){ // guardo la llave del contador y el valor 0
-            document.getElementById("counterHearts").innerHTML="Corazones: "+localStorage.getItem("counterHearts"); // escribir lo guardado en el local storage
-            }
-        } // función llamar contadores más sumar nuevos      
-        function sumHearts(){
-            localStorage.setItem("counterHearts",Number(localStorage.getItem("counterHearts"))+1); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
-            document.getElementById("counterHearts").innerHTML = "Corazones: "+ localStorage.getItem("counterHearts"); // escribir los datos con contador nuevo
-        }
+        const counterHearts = document.getElementById('counterHearts')
+        localStorage.setItem('counterHearts',Number(localStorage.getItem('counterHearts'))+1); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
+        counterHearts.innerHTML = localStorage.getItem('counterHearts'); // escribir los datos con contador nuevo
     });
 };
 
-const postBox = document.getElementById("postBox").value = ''; // mantener el input de publicación vacío
+const postBox = document.getElementById('postBox').value = ''; // mantener el input de publicación vacío
 // función agregar publicación
 function addPost() {
     const posts = document.getElementById('postBox').value;
@@ -84,7 +78,7 @@ function addPost() {
         // que se active recordar ingresar texto
         createMessageForEmptyField();
     } else {
-    document.getElementById("postBox").value = '';
+    document.getElementById('postBox').value = '';
     postingMessages(posts);
     addPostToLocalStorage(posts);
     }
@@ -94,7 +88,7 @@ function addPost() {
 function deletePost(element) {
     // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
     if(element.target.className === 'material-icons btn-flat delete')
-    if(window.confirm("¿Estás segur@ de eliminar?")){ 
+    if(window.confirm('¿Estás segur@ de eliminar?')){ 
         // me refiero al elemento padre y lo elimino 
         element.target.parentElement.remove();
         deletePostLocalStorage(element.target.parentElement.innerText);
@@ -109,7 +103,7 @@ function editarTarea(element) {
 // función para crear mensaje de advertencia para que incluya texto en el input
 function createMessageForEmptyField() {
     const message = document.createElement('a');
-    message.setAttribute("id", "answer");
+    message.setAttribute('id', 'answer');
     const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
     message.appendChild(textAnswer);
     postingContainer.appendChild(message);
