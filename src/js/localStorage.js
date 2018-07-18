@@ -1,6 +1,4 @@
-window.onload = () => {
-    showLocalStorage();
-}; 
+
 // función para agregar elementos al localStorage
 function addPostToLocalStorage(postsMessagesUsers) {
     let posts = getPostInLocalStorage();
@@ -56,5 +54,5 @@ function showLocalStorage() {
     //convierte el arreglo nuevo (con la tarea eliminada) en string para volver a guardarlo en local storage
     localStorage.setItem('posts', JSON.stringify(posts));
   }
-};
+
 
