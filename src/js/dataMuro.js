@@ -1,16 +1,18 @@
 window.onload = () => {
     eventListeners();
     showLocalStorage();
-}; eventListeners = () => {
+}; 
+eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento click borrar publicación
      // Editar tareas
      document.addEventListener('click', editarTarea);
+     // Función likes
+    /*  document.addEventListener('click', countLikesChangeColor); */
 };
 const postingContainer = document.getElementById('publications'); // contenedor de publicaciones
 
-// función generadora de DOM de publicación usuario
-function postingMessages(message){
+function postingMessages(message){ // función generadora de DOM de publicación usuario
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
     //const imagen = document.createElement('img');  //creo un elemento imagen
@@ -28,10 +30,9 @@ function postingMessages(message){
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
-
-
-   
-
+    const user = document.createElement('a')
+    const userNameText = document.createTextNode('user.name')
+ 
     enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
     //se enlaza boton de edicion con html donde se editara comentario. 
 
@@ -48,12 +49,15 @@ function postingMessages(message){
   
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
     //postingUser.appendChild(imagen)
+    user.appendChild(userNameText);
     counter.appendChild(counterNumber);
     likeHeart.appendChild(counter);
     commentButton.appendChild(iconComment); 
     likeHeart.appendChild(iconHeart);
     deleteButton.appendChild(iconTrash);
     paragraph.appendChild(textPost);
+    postingUser.appendChild(user);
+    postingUser.appendChild(userNameText);
     postingUser.appendChild(paragraph);
     postingUser.appendChild(counter);
     postingUser.appendChild(likeHeart);
@@ -61,12 +65,22 @@ function postingMessages(message){
     postingUser.appendChild(editButton);
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
-
     enlaceEdit.appendChild(iconEdit);
     editButton.appendChild(enlaceEdit);
     
     // evento para cambiar color de icono corazón
-    
+/*     function deletePost(element) {
+        // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
+        if(element.target.className === 'material-icons btn-flat delete')
+        if(window.confirm('¿Estás segur@ de eliminar?')){ 
+            // me refiero al elemento padre y lo elimino 
+            element.target.parentElement.remove();
+        }
+    }; */
+
+  /*   function countLikesChangeColor(event){
+        if(event)
+    } */
     likeHeart.addEventListener('click', () => {
         likeHeart.classList.add('red-text');
         const counterHearts = document.getElementById('counterHearts')
@@ -112,7 +126,7 @@ function editarTarea(element) {
     }
 };
 
-//funcion para cargar imagen
+/* //funcion para cargar imagen
 function init() {
     let inputFile = document.getElementById('inputFile1');
     inputFile.addEventListener('change', mostrarImagen, false);
@@ -128,6 +142,5 @@ function init() {
     }
     reader.readAsDataURL(file);
   }
-  
   window.addEventListener('load', init, false);
-
+ */
