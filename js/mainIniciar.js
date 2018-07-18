@@ -19,7 +19,8 @@ function observ(){
     if (user) {
       // El usuario ha iniciado sesión.
       console.log( ' El usuario existe');
-      ver()
+      Redirect()
+      //ver()
       var displayName = user.displayName;
       var email = user.email;
       console.log(user.emailVerified)
@@ -32,17 +33,17 @@ function observ(){
     } else {
       // El usuario está desconectado
       console.log(' El usuario no existe');
+     cerrarSesion();
     }
   });
 }
-observ();
-// funcion para verificar si el usuario inicio sesion correctamente 
-function ver(){
 
-    cerrarSesion()
+/// funcion para verificar si el usuario inicio sesion correctamente 
+/*function ver(){
+console.log("pulsaste el botton cerrar sesión");
 
+}*/
 
-}
 //  para autenticar cerrrar sesion 
 function cerrarSesion(){
   firebase.auth().signOut()
@@ -55,25 +56,27 @@ function cerrarSesion(){
   })
 }
 //iniciar sesion con google
-function googleLoginWithFirebase(){
-  var provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-  }
+  function googleLoginWithFirebase(){
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      Redirect()
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+    }
+    
   //facebook
 function facebookLoginWithFirebase(){
   var provider = new firebase.auth.FacebookAuthProvider();
@@ -82,6 +85,7 @@ function facebookLoginWithFirebase(){
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+    Redirect()
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -94,3 +98,6 @@ function facebookLoginWithFirebase(){
     // ...
   });
   }
+  function Redirect() {
+    window.location="../src/indexMuro.html";
+ }
