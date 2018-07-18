@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../src/css/styleMuro.css">
+        <link rel="shortcut icon" href="img/isotipo.png">
+        <title>Veggie Experience</title>
+        
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <img src="img/logo.png" id="isotipo" href="#" class="brand-logo center">
+                    <ul id="slide-out" class="sidenav">
+                            <li><a href="#!" class="btn-flat black-text"><i class="material-icons">home</i>Inicio</a></li>
+                            <li><a href="../src/index.html" class="btn-flat black-text" onclick="cerrarSesion()"><i class="material-icons">keyboard_tab</i>Cerrar Sesión</a></li>
+                            <li><div class="divider grey"></div></li>
+                            <li><a href="#!" class="sidenav-close" ><i class="material-icons">keyboard_backspace</i>Volver</a></li>
+                    </ul>
+                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>           
+
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyBd5aPn_63VSjw-JftcStTGTiEkgW_TGbI",
+            authDomain: "proyecto3redsocial.firebaseapp.com",
+            databaseURL: "https://proyecto3redsocial.firebaseio.com",
+            projectId: "proyecto3redsocial",
+            storageBucket: "proyecto3redsocial.appspot.com",
+            messagingSenderId: "36811154021"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+        <script src="../src/js/dataMuro.js"></script>
+        <script src="../src/js/localStorage.js"></script>
+        <script src="../src/js/mainIniciacióMaterialize.js"></script>
+        <script src="../src/js/mainIniciar.js"></script>
+    </body>
+</html>
