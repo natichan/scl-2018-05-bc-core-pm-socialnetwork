@@ -45,14 +45,12 @@ function postingMessages(message){
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
     //imagen.setAttribute('class', 'publicationDom');
-   
- 
+  
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
     //postingUser.appendChild(imagen)
     counter.appendChild(counterNumber);
     likeHeart.appendChild(counter);
     commentButton.appendChild(iconComment); 
-
     likeHeart.appendChild(iconHeart);
     deleteButton.appendChild(iconTrash);
     paragraph.appendChild(textPost);
