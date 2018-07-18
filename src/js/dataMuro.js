@@ -1,7 +1,8 @@
 window.onload = () => {
     eventListeners();
     showLocalStorage();
-}; eventListeners = () => {
+}; 
+eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento click borrar publicación
      // Editar tareas
@@ -87,7 +88,14 @@ function addPost() {
     addPostToLocalStorage(posts);
     }
 };
-
+// función para crear mensaje de advertencia para que incluya texto en el input
+function createMessageForEmptyField() {
+    const message = document.createElement('a');
+    message.setAttribute('id', 'answer');
+    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
+    message.appendChild(textAnswer);
+    postingContainer.appendChild(message);
+};
 // función eliminar publicación DOM
 function deletePost(element) {
     // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
@@ -100,66 +108,12 @@ function deletePost(element) {
 
     }
 };
- // Eliminar tareas de Local Storage
- function deletePostLocalStorage(post) {
-    //console.log(post);
-    
-    
-    //la función recibe todo el texto de la tarea más el icono y procede a cortar el texto, dejando solo el texto de la tarea, para eliminarla del localStorage
-    let deletePost = post.substring(0, post.length -50); 
-    let post = obtenerTareasLocalStorage();
-    //en el forEach, compara la tarea recibida con lo existente en local storage y quita la tarea a eliminar
-    posts.forEach(function(textoArr, index) {
-        if(deletePost === textoArr) {
-              posts.splice(index, 1);
-              //console.log(posts);
-               
-        }
-    })
-    //convierte el arreglo nuevo (con la tarea eliminada) en string para volver a guardarlo en local storage
-    localStorage.setItem('posts', JSON.stringify(posts));
-  }
-
-  
- 
 //funcion editar post
 function editarTarea(element) {
     if(element.target.id === 'delete') {
          element.target.parentElement.remove(); 
     }
 };
-// función para crear mensaje de advertencia para que incluya texto en el input
-function createMessageForEmptyField() {
-    const message = document.createElement('a');
-    message.setAttribute('id', 'answer');
-    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
-    message.appendChild(textAnswer);
-    postingContainer.appendChild(message);
-};
-// función para agregar elementos al localStorage
-function addPostToLocalStorage(postsMessagesUsers) {
-    let posts = getPostInLocalStorage();
-    // console.log(posts);
-    // agrego la nueva publicación al array
-    posts.push(postsMessagesUsers);
-    // guardar en local storage como una cadena JSON
-    localStorage.setItem('posts', JSON.stringify(posts));    
-};
-
-// función para comprobar que hay elementos en localStorage con getItem
-function getPostInLocalStorage() {
-    let posts;
-    // si el valor del dato guardado en la clave de posts del localStorage es igual a null d 
-    if(localStorage.getItem('posts') === null) {
-         posts = []; 
-    } else {
-        // devolver los valores del post guardados en el localStorage
-         posts = JSON.parse(localStorage.getItem('posts'));
-         //console.log(posts); // muestra las publicaciones guardadas en un array
-    }
-    return posts;
-};
-
 //funcion para cargar imagen
 function init() {
     let inputFile = document.getElementById('inputFile1');
@@ -176,17 +130,5 @@ function init() {
     }
     reader.readAsDataURL(file);
   }
-  
   window.addEventListener('load', init, false);
-
-// Mostrar datos de localStorage en la página
-function showLocalStorage() {
-    let posts;
-    posts = getPostInLocalStorage();
-    //console.log(posts);
-    posts.forEach(function(message) {
-        //console.log(message);
-        postingMessages(message);      
-    });
-  };
 
