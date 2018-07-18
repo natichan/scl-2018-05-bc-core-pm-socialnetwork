@@ -95,8 +95,33 @@ function deletePost(element) {
     if(window.confirm('¿Estás segur@ de eliminar?')){ 
         // me refiero al elemento padre y lo elimino 
         element.target.parentElement.remove();
+        //aca debo invocar funcion de borarr elementos de local storage
+        deletePostLocalStorage(element.target.parentElement.innerText); 
+
     }
 };
+ // Eliminar tareas de Local Storage
+ function deletePostLocalStorage(post) {
+    //console.log(post);
+    
+    
+    //la función recibe todo el texto de la tarea más el icono y procede a cortar el texto, dejando solo el texto de la tarea, para eliminarla del localStorage
+    let deletePost = post.substring(0, post.length -50); 
+    let post = obtenerTareasLocalStorage();
+    //en el forEach, compara la tarea recibida con lo existente en local storage y quita la tarea a eliminar
+    posts.forEach(function(textoArr, index) {
+        if(deletePost === textoArr) {
+              posts.splice(index, 1);
+              //console.log(posts);
+               
+        }
+    })
+    //convierte el arreglo nuevo (con la tarea eliminada) en string para volver a guardarlo en local storage
+    localStorage.setItem('posts', JSON.stringify(posts));
+  }
+
+  
+ 
 //funcion editar post
 function editarTarea(element) {
     if(element.target.id === 'delete') {
@@ -165,23 +190,3 @@ function showLocalStorage() {
     });
   };
 
-
-// Eliminar tareas de Local Storage
-function borrarTareasLocalStorage(tarea) {
-    //console.log(tarea);
-    
-    // Elimina la X de la tarea
-    //la función recibe todo el texto de la tarea más la X y procede a cortar el texto, dejando solo el texto de la tarea, para eliminarla del localStorage
-    let borrarTarea = tarea.substring(0, tarea.length - 1); 
-    let tareas = obtenerTareasLocalStorage();
-    //en el forEach, compara la tarea recibida con lo existente en local storage y quita la tarea a eliminar
-    tareas.forEach(function(textoArr, index) {
-        if(borrarTarea === textoArr) {
-              tareas.splice(index, 1);
-              //console.log(tareas);
-               
-        }
-    })
-    //convierte el arreglo nuevo (con la tarea eliminada) en string para volver a guardarlo en local storage
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-  }
