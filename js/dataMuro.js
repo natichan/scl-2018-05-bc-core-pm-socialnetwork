@@ -13,7 +13,7 @@ const postingContainer = document.getElementById('publications'); // contenedor 
 function postingMessages(message){
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
-    const imagen = document.createElement('img');  //creo un elemento imagen
+    //const imagen = document.createElement('img');  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
 
     // creo los iconos que irán en la publicación
@@ -44,10 +44,11 @@ function postingMessages(message){
     editButton.setAttribute('class', 'material-icons btn-flat ');
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
-    imagen.setAttribute('class', 'publicationDom');
-
+    //imagen.setAttribute('class', 'publicationDom');
+   
+ 
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
-    postingUser.appendChild(imagen)
+    //postingUser.appendChild(imagen)
     counter.appendChild(counterNumber);
     likeHeart.appendChild(counter);
     commentButton.appendChild(iconComment); 

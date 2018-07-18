@@ -11,7 +11,7 @@ function addPostToLocalStorage(postsMessagesUsers) {
 // función para comprobar que hay elementos en localStorage con getItem
 function getPostInLocalStorage() {
     let posts;
-    // si el valor del dato guardado en la clave de posts del localStorage es igual a null d 
+    // si el valor del dato guardado en la clave de posts del localStorage es igual a null array vacio 
     if(localStorage.getItem('posts') === null) {
          posts = []; 
     } else {
