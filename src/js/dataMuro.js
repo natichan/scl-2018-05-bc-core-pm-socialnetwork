@@ -30,12 +30,13 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
+
     const user = document.createElement('a')
     const userNameText = document.createTextNode('user.name')
  
+
     enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
     //se enlaza boton de edicion con html donde se editara comentario. 
-
     // atributos de mis elementos    
     counter.setAttribute('class', 'showCounter')
     counter.setAttribute('id', 'counterHearts');
@@ -46,7 +47,7 @@ function postingMessages(message){ // función generadora de DOM de publicación
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
     //imagen.setAttribute('class', 'publicationDom');
-  
+    
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
     //postingUser.appendChild(imagen)
     user.appendChild(userNameText);
@@ -108,7 +109,7 @@ function createMessageForEmptyField() {
     message.setAttribute('id', 'answer');
     const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
     message.appendChild(textAnswer);
-    postingContainer.appendChild(message);    
+    postingContainer.appendChild(message);
 };
 // función eliminar publicación DOM
 function deletePost(element) {
@@ -117,6 +118,9 @@ function deletePost(element) {
     if(window.confirm('¿Estás segur@ de eliminar?')){ 
         // me refiero al elemento padre y lo elimino 
         element.target.parentElement.remove();
+        //aca debo invocar funcion de borarr elementos de local storage
+        deletePostLocalStorage(element.target.parentElement.innerText); 
+
     }
 };
 //funcion editar post
@@ -126,7 +130,9 @@ function editarTarea(element) {
     }
 };
 
+
 /* //funcion para cargar imagen
+
 function init() {
     let inputFile = document.getElementById('inputFile1');
     inputFile.addEventListener('change', mostrarImagen, false);
@@ -138,7 +144,7 @@ function init() {
     reader.onload = function(event) {
       let img = document.getElementById('img1');
       img.src= event.target.result;
-      postingMessages(img.src);
+      
     }
     reader.readAsDataURL(file);
   }
