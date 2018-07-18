@@ -4,8 +4,8 @@ function registrar(){
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
 
-  .then(function(){
-  verifemail()
+  .then(listo => {
+    verifemail()
   })
 
   .catch(function(error) {  
@@ -22,8 +22,12 @@ function verifemail(){
 
   .then(function() {
     // Email sent.
+    redirect()
     console.log("se envio Email")
   }).catch(function(error) {
     console.log(error)
   });
   }
+  function redirectInicio() {
+    location="../src/index.html";
+ }

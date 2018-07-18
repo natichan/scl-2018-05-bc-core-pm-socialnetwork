@@ -6,6 +6,8 @@ body{
 .btnRegist{
     width: 100%;
     background-color: #6ea328 !important;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 .row{
     margin: 0% !important;
