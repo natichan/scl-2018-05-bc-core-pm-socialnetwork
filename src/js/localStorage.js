@@ -1,6 +1,3 @@
-window.onload = () => {
-    showLocalStorage();
-}; 
 // función para agregar elementos al localStorage
 function addPostToLocalStorage(postsMessagesUsers) {
     let posts = getPostInLocalStorage();
