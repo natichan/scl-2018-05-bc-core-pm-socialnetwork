@@ -29,12 +29,12 @@ function postingMessages(message){
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
 
+    
 
    
 
     enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
     //se enlaza boton de edicion con html donde se editara comentario. 
-
     // atributos de mis elementos    
     counter.setAttribute('class', 'showCounter')
     counter.setAttribute('id', 'counterHearts');
@@ -45,9 +45,9 @@ function postingMessages(message){
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
     //imagen.setAttribute('class', 'publicationDom');
-  
+    
+
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
-    //postingUser.appendChild(imagen)
     counter.appendChild(counterNumber);
     likeHeart.appendChild(counter);
     commentButton.appendChild(iconComment); 
@@ -61,7 +61,6 @@ function postingMessages(message){
     postingUser.appendChild(editButton);
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
-
     enlaceEdit.appendChild(iconEdit);
     editButton.appendChild(enlaceEdit);
     
@@ -88,14 +87,7 @@ function addPost() {
     addPostToLocalStorage(posts);
     }
 };
-// función para crear mensaje de advertencia para que incluya texto en el input
-function createMessageForEmptyField() {
-    const message = document.createElement('a');
-    message.setAttribute('id', 'answer');
-    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
-    message.appendChild(textAnswer);
-    postingContainer.appendChild(message);    
-};
+
 // función eliminar publicación DOM
 function deletePost(element) {
     // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
@@ -111,6 +103,37 @@ function editarTarea(element) {
          element.target.parentElement.remove(); 
     }
 };
+// función para crear mensaje de advertencia para que incluya texto en el input
+function createMessageForEmptyField() {
+    const message = document.createElement('a');
+    message.setAttribute('id', 'answer');
+    const textAnswer = document.createTextNode('Recuerda que debes ingresar un texto')
+    message.appendChild(textAnswer);
+    postingContainer.appendChild(message);
+};
+// función para agregar elementos al localStorage
+function addPostToLocalStorage(postsMessagesUsers) {
+    let posts = getPostInLocalStorage();
+    // console.log(posts);
+    // agrego la nueva publicación al array
+    posts.push(postsMessagesUsers);
+    // guardar en local storage como una cadena JSON
+    localStorage.setItem('posts', JSON.stringify(posts));    
+};
+
+// función para comprobar que hay elementos en localStorage con getItem
+function getPostInLocalStorage() {
+    let posts;
+    // si el valor del dato guardado en la clave de posts del localStorage es igual a null d 
+    if(localStorage.getItem('posts') === null) {
+         posts = []; 
+    } else {
+        // devolver los valores del post guardados en el localStorage
+         posts = JSON.parse(localStorage.getItem('posts'));
+         //console.log(posts); // muestra las publicaciones guardadas en un array
+    }
+    return posts;
+};
 
 //funcion para cargar imagen
 function init() {
@@ -124,10 +147,41 @@ function init() {
     reader.onload = function(event) {
       let img = document.getElementById('img1');
       img.src= event.target.result;
-      postingMessages(img.src);
+      
     }
     reader.readAsDataURL(file);
   }
   
   window.addEventListener('load', init, false);
 
+// Mostrar datos de localStorage en la página
+function showLocalStorage() {
+    let posts;
+    posts = getPostInLocalStorage();
+    //console.log(posts);
+    posts.forEach(function(message) {
+        //console.log(message);
+        postingMessages(message);      
+    });
+  };
+
+
+// Eliminar tareas de Local Storage
+function borrarTareasLocalStorage(tarea) {
+    //console.log(tarea);
+    
+    // Elimina la X de la tarea
+    //la función recibe todo el texto de la tarea más la X y procede a cortar el texto, dejando solo el texto de la tarea, para eliminarla del localStorage
+    let borrarTarea = tarea.substring(0, tarea.length - 1); 
+    let tareas = obtenerTareasLocalStorage();
+    //en el forEach, compara la tarea recibida con lo existente en local storage y quita la tarea a eliminar
+    tareas.forEach(function(textoArr, index) {
+        if(borrarTarea === textoArr) {
+              tareas.splice(index, 1);
+              //console.log(tareas);
+               
+        }
+    })
+    //convierte el arreglo nuevo (con la tarea eliminada) en string para volver a guardarlo en local storage
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+  }
