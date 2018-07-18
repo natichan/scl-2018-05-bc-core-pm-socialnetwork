@@ -1,9 +1,12 @@
+window.onload = () => {
+    showLocalStorage();
+}; 
 // función para agregar elementos al localStorage
 function addPostToLocalStorage(postsMessagesUsers) {
     let posts = getPostInLocalStorage();
     // console.log(posts);
     // agrego la nueva publicación al array
-    posts.unshift(postsMessagesUsers);
+    posts.push(postsMessagesUsers);
     // guardar en local storage como una cadena JSON
     localStorage.setItem('posts', JSON.stringify(posts));    
 };
@@ -27,6 +30,7 @@ function showLocalStorage() {
     posts = getPostInLocalStorage();
     //console.log(posts);
     posts.forEach(function(message) {
-        //console.log(message);    
+        //console.log(message);
+        postingMessages(message);    
     });
-  };
+};
