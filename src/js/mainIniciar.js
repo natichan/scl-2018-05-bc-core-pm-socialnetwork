@@ -5,7 +5,9 @@ function iniciarSesion(){
     const password2 = document.getElementById('password2').value;// imput contraseña
 
 firebase.auth().signInWithEmailAndPassword(email2, password2)// función de firebase para auntenticar email y contraseña
-.catch(function(error) {
+.then(listo => {
+  redirect()
+}).catch(function(error) {
     // Se manejan los errores de autenticación.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -18,8 +20,9 @@ function observ(){
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // El usuario ha iniciado sesión.
+      
       console.log( ' El usuario existe');
-      Redirect()
+      
       //ver()
       var displayName = user.displayName;
       var email = user.email;
@@ -30,14 +33,15 @@ function observ(){
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      
     } else {
       // El usuario está desconectado
       console.log(' El usuario no existe');
-     cerrarSesion();
+     
     }
   });
 }
-
+observ()
 /// funcion para verificar si el usuario inicio sesion correctamente 
 /*function ver(){
 console.log("pulsaste el botton cerrar sesión");
@@ -63,7 +67,7 @@ function cerrarSesion(){
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
-      Redirect()
+      redirect()
       // ...
     }).catch(function(error) {
       // Handle Errors here.
@@ -85,7 +89,7 @@ function facebookLoginWithFirebase(){
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
-    Redirect()
+    redirect()
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -98,6 +102,6 @@ function facebookLoginWithFirebase(){
     // ...
   });
   }
-  function Redirect() {
-    window.location="../src/indexMuro.html";
+  function redirect() {
+    location="../src/indexMuro.html";
  }
