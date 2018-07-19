@@ -46,6 +46,7 @@ function postingMessages(message){ // función generadora de DOM de publicación
     editButton.setAttribute('class', 'material-icons btn-flat ');
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
+    postingUser.setAttribute('id', 'seccion1')
     //imagen.setAttribute('class', 'publicationDom');
     
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
@@ -118,7 +119,7 @@ function deletePost(element) {
         deletePostLocalStorage(element.target.parentElement.innerText); 
     }
 };
-//funcion editar post
+
 function editarTarea(element) {
     if(element.target.id === 'delete') {
          element.target.parentElement.remove(); 
