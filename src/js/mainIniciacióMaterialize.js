@@ -7,4 +7,9 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.sidenav').sidenav();
   });
-        
+
+  // Iniciación slider
+  $(document).ready(function(){
+    $('.slider').slider();
+  });
+     

@@ -17,12 +17,14 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const paragraph = document.createElement('p'); // creo un elemento parrafo
     //const imagen = document.createElement('img');  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
-
+    const user = document.createElement('a')
+    const userNameText = document.createTextNode('user.name')
+    const counter = document.createElement('a')
+    const counterNumber = document.createTextNode('')
+    
     // creo los iconos que irán en la publicación
     const likeHeart = document.createElement('i'); // creo un elemento icono
     const iconHeart = document.createTextNode('favorite') // le digo que es un texto para decirle que icono es
-    const counter = document.createElement('a')
-    const counterNumber = document.createTextNode('')
     const editButton = document.createElement('i');
     const iconEdit = document.createTextNode('border_color');
     const enlaceEdit= document.createElement('a');//se crea enlace a modificar comentario
@@ -31,14 +33,10 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
 
-    const user = document.createElement('a')
-    const userNameText = document.createTextNode('user.name')
- 
-
-    enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
+     /* enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
     //se enlaza boton de edicion con html donde se editara comentario. 
-    // atributos de mis elementos    
-    counter.setAttribute('class', 'showCounter')
+    // atributos de mis elementos     */
+    
     counter.setAttribute('id', 'counterHearts');
     likeHeart.setAttribute('id', 'heart');
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
@@ -69,21 +67,19 @@ function postingMessages(message){ // función generadora de DOM de publicación
     enlaceEdit.appendChild(iconEdit);
     editButton.appendChild(enlaceEdit);
     
-    // evento para cambiar color de icono corazón
-/*     function countLikesAndChangeColor(event){
-        if(event.target.id === heart){
-            likeHeart.classList.add('red-text');
-            const counterHearts = document.getElementById('counterHearts')
-            localStorage.setItem('counterHearts', JSON.stringify(localStorage.getItem('counterHearts')+1)); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
-            counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // escribir los datos con contador nuevo
+    countLikesChangeColor();
+
+    function countLikesChangeColor(){
+        likeHeart.addEventListener('click', () => { 
+        if (localStorage.counterHearts) {
+         localStorage.counterHearts = parseInt(localStorage.counterHearts) + 1; // fijo como número el contador
+         likeHeart.classList.add('red-text');
+        } else {
+         localStorage.counterHearts = 1; // si no existe igual a 1
         }
-    }  */
-        likeHeart.addEventListener('click', () => {
-        likeHeart.classList.add('red-text');
-        const counterHearts = document.getElementById('counterHearts')
-        localStorage.setItem('counterHearts', JSON.stringify(Number(localStorage.getItem('counterHearts'))+1)); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
-        counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // escribir los datos con contador nuevo
-    }); 
+        counterHearts.innerHTML = JSON.parse(localStorage.counterHearts); // mostrar en publicación
+       });
+    }  
 };
 
 const postBox = document.getElementById('postBox').value = ''; // mantener el input de publicación vacío
@@ -116,12 +112,6 @@ function deletePost(element) {
         element.target.parentElement.remove();
         //aca debo invocar funcion de borarr elementos de local storage
         deletePostLocalStorage(element.target.parentElement.innerText); 
-    }
-};
-//funcion editar post
-function editarTarea(element) {
-    if(element.target.id === 'delete') {
-         element.target.parentElement.remove(); 
     }
 };
 
