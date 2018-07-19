@@ -120,7 +120,6 @@ function deletePost(element) {
         element.target.parentElement.remove();
         //aca debo invocar funcion de borarr elementos de local storage
         deletePostLocalStorage(element.target.parentElement.innerText); 
-
     }
 };
 //funcion editar post
