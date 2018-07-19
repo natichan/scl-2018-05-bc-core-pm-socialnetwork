@@ -5,8 +5,7 @@ window.onload = () => {
 eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento click borrar publicación
-     // Editar tareas
-     document.addEventListener('click', editarTarea);
+     
      // Función likes
     /* document.addEventListener('click', countLikesChangeColor); */
 };
@@ -117,12 +116,6 @@ function deletePost(element) {
         element.target.parentElement.remove();
         //aca debo invocar funcion de borarr elementos de local storage
         deletePostLocalStorage(element.target.parentElement.innerText); 
-    }
-};
-
-function editarTarea(element) {
-    if(element.target.id === 'delete') {
-         element.target.parentElement.remove(); 
     }
 };
 
