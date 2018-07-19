@@ -5,7 +5,8 @@ window.onload = () => {
 eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento click borrar publicación
-     
+    /*  // Editar tareas
+     document.addEventListener('click', editPost); */
      // Función likes
     /* document.addEventListener('click', countLikesChangeColor); */
 };
@@ -14,6 +15,10 @@ const postingContainer = document.getElementById('publications'); // contenedor 
 function postingMessages(message){ // función generadora de DOM de publicación usuario
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
+    const textoeditado = document.createElement("span");
+    
+
+   
     //const imagen = document.createElement('img');  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
     const user = document.createElement('a')
@@ -22,11 +27,12 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const counterNumber = document.createTextNode('')
     
     // creo los iconos que irán en la publicación
-    const likeHeart = document.createElement('i'); // creo un elemento icono
+    let likeHeart = document.createElement('i'); // creo un elemento icono
     const iconHeart = document.createTextNode('favorite') // le digo que es un texto para decirle que icono es
     const editButton = document.createElement('i');
     const iconEdit = document.createTextNode('border_color');
-    const enlaceEdit= document.createElement('a');//se crea enlace a modificar comentario
+   
+    
     const commentButton = document.createElement('i');
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
@@ -41,9 +47,11 @@ function postingMessages(message){ // función generadora de DOM de publicación
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
     deleteButton.setAttribute('class', 'material-icons btn-flat delete');
     editButton.setAttribute('class', 'material-icons btn-flat ');
+    editButton.setAttribute('onclick', 'editPost()');
     commentButton.setAttribute('class', 'material-icons btn-flat comment');
     postingUser.setAttribute('class', 'publicationDom')
-    postingUser.setAttribute('id', 'seccion1')
+    
+    paragraph.setAttribute('id', 'seccion1');
     //imagen.setAttribute('class', 'publicationDom');
     
     // asigno los hijos al padre. Los entre () son los hijos del primer elemento
@@ -58,14 +66,33 @@ function postingMessages(message){ // función generadora de DOM de publicación
     postingUser.appendChild(user);
     postingUser.appendChild(userNameText);
     postingUser.appendChild(paragraph);
+   // paragraph.replaceWith(textoeditado);
     postingUser.appendChild(counter);
     postingUser.appendChild(likeHeart);
     postingUser.appendChild(commentButton);
     postingUser.appendChild(editButton);
+    editButton.appendChild(iconEdit);
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
-    enlaceEdit.appendChild(iconEdit);
-    editButton.appendChild(enlaceEdit);
+   
+    editPost();
+    function editPost(){
+               
+        document.getElementById('seccion1').contentEditable = 'true';
+        document.getElementById('seccion1').designMode='on';
+    
+    }
+  
+
+    var parent = document.createElement("div");
+var child = document.createElement("p");
+parent.appendChild(child);
+var span = document.createElement("span");
+
+child.replaceWith(span);
+
+console.log(parent.outerHTML);
+// "<div><span></span></div>"
     
     countLikesChangeColor();
 
@@ -104,14 +131,14 @@ function createMessageForEmptyField() {
     postingContainer.appendChild(message);
 };
 // función eliminar publicación DOM
-function deletePost(element) {
+function deletePost(event) {
     // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
-    if(element.target.className === 'material-icons btn-flat delete')
+    if(event.target.className === 'material-icons btn-flat delete')
     if(window.confirm('¿Estás segur@ de eliminar?')){ 
         // me refiero al elemento padre y lo elimino 
-        element.target.parentElement.remove();
+        event.target.parentElement.remove();
         //aca debo invocar funcion de borarr elementos de local storage
-        deletePostLocalStorage(element.target.parentElement.innerText); 
+        deletePostLocalStorage(event.target.parentElement.innerText); 
     }
 };
 
