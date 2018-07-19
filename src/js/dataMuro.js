@@ -8,7 +8,7 @@ eventListeners = () => {
      // Editar tareas
      document.addEventListener('click', editarTarea);
      // Función likes
-    /*  document.addEventListener('click', countLikesChangeColor); */
+    /* document.addEventListener('click', countLikesChangeColor); */
 };
 const postingContainer = document.getElementById('publications'); // contenedor de publicaciones
 
@@ -70,24 +70,20 @@ function postingMessages(message){ // función generadora de DOM de publicación
     editButton.appendChild(enlaceEdit);
     
     // evento para cambiar color de icono corazón
-/*     function deletePost(element) {
-        // con target me refiero al boton de eliminar que gatillo la acción por medio de su clase
-        if(element.target.className === 'material-icons btn-flat delete')
-        if(window.confirm('¿Estás segur@ de eliminar?')){ 
-            // me refiero al elemento padre y lo elimino 
-            element.target.parentElement.remove();
+/*     function countLikesAndChangeColor(event){
+        if(event.target.id === heart){
+            likeHeart.classList.add('red-text');
+            const counterHearts = document.getElementById('counterHearts')
+            localStorage.setItem('counterHearts', JSON.stringify(localStorage.getItem('counterHearts')+1)); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
+            counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // escribir los datos con contador nuevo
         }
-    }; */
-
-  /*   function countLikesChangeColor(event){
-        if(event)
-    } */
-    likeHeart.addEventListener('click', () => {
+    }  */
+        likeHeart.addEventListener('click', () => {
         likeHeart.classList.add('red-text');
         const counterHearts = document.getElementById('counterHearts')
         localStorage.setItem('counterHearts', JSON.stringify(Number(localStorage.getItem('counterHearts'))+1)); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
         counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // escribir los datos con contador nuevo
-    });
+    }); 
 };
 
 const postBox = document.getElementById('postBox').value = ''; // mantener el input de publicación vacío
