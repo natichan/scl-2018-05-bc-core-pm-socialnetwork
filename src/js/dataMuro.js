@@ -30,7 +30,6 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
-
     const user = document.createElement('a')
     const userNameText = document.createTextNode('user.name')
  
@@ -38,7 +37,6 @@ function postingMessages(message){ // función generadora de DOM de publicación
     enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
     //se enlaza boton de edicion con html donde se editara comentario. 
     // atributos de mis elementos    
-    counter.setAttribute('class', 'showCounter')
     counter.setAttribute('id', 'counterHearts');
     likeHeart.setAttribute('id', 'heart');
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
@@ -69,21 +67,21 @@ function postingMessages(message){ // función generadora de DOM de publicación
     enlaceEdit.appendChild(iconEdit);
     editButton.appendChild(enlaceEdit);
     
-    // evento para cambiar color de icono corazón
-/*     function countLikesAndChangeColor(event){
-        if(event.target.id === heart){
-            likeHeart.classList.add('red-text');
-            const counterHearts = document.getElementById('counterHearts')
-            localStorage.setItem('counterHearts', JSON.stringify(localStorage.getItem('counterHearts')+1)); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
-            counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // escribir los datos con contador nuevo
+    countLikesChangeColor();
+
+    function countLikesChangeColor(){
+        likeHeart.addEventListener('click', () => { 
+        // compruebo si existe un contador, si no existe lo creo
+        if (localStorage.counterHearts) {
+         localStorage.counterHearts = parseInt(localStorage.counterHearts) + 1; // fijo como número el contador
+         likeHeart.classList.add('red-text');
         }
-    }  */
-        likeHeart.addEventListener('click', () => {
-        likeHeart.classList.add('red-text');
-        const counterHearts = document.getElementById('counterHearts')
-        localStorage.setItem('counterHearts', JSON.stringify(Number(localStorage.getItem('counterHearts'))+1)); // obtengo los valores del localStorage, transformo a número el valor (con number) para que se sume
-        counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // escribir los datos con contador nuevo
-    }); 
+        else {
+         localStorage.counterHearts = 1; // si no existe igual a 1
+        }
+        document.getElementById("counterHearts").value = localStorage.counterHearts;
+       });
+    }  
 };
 
 const postBox = document.getElementById('postBox').value = ''; // mantener el input de publicación vacío
