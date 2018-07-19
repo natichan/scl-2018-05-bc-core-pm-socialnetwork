@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../src/css/styleP.css">
+        <link rel="shortcut icon" href="img/isotipo.png">
+        <title>Veggie Experience</title>
+        
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <img class = 'brand-logo center responsive-img' src="img/logotipoHorizontalBordeBlanco (1).png" id="isotipo"class ="brand-logo center">
+                    <ul id="slide-out" class="sidenav">
+                            <li><a href="../src/indexMuro.html" class="btn-flat black-text inicio"><i class="material-icons">home</i>Inicio</a></li>
+                            <li><a href="../src/indexp.html" class="btn-flat black-text"><i class="material-icons">person</i>Perfil</a></li>
+                            <li><a href="../src/index.html" class="btn-flat black-text" onclick="cerrarSesion()"><i class="material-icons">keyboard_tab</i>Cerrar Sesión</a></li>
+                            <li><div class="divider grey"></div></li>
+                            <li><a href="#!" class="sidenav-close" ><i class="material-icons">keyboard_backspace</i>Volver</a></li>
+                    </ul>
+                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>       
+
+        <section class="center-align" >
+                <a href="#user"><img class="circle responsive-img imgperfil" src="../src/img/perfil.jpg"></a>
+        </section>
+      <section>
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  id="first_name" type="text" class="validate">
+                  <label for="first_name">Nombre</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="last_name" type="text" class="validate">
+                  <label for="last_name">Apellido</label>
+                </div>
+                <div class="input-field col s12">
+                <input type="text" class="datepicker">
+                <label >Fecha de Nacimiento</label>
+                </div>  
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Acerca de mí</label>
+                </div>
+            </div>
+            </form>
+        </div>
+
+    </section>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBd5aPn_63VSjw-JftcStTGTiEkgW_TGbI",
+        authDomain: "proyecto3redsocial.firebaseapp.com",
+        databaseURL: "https://proyecto3redsocial.firebaseio.com",
+        projectId: "proyecto3redsocial",
+        storageBucket: "proyecto3redsocial.appspot.com",
+        messagingSenderId: "36811154021"
+      };
+      firebase.initializeApp(config);
+    </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+        <script src="../src/js/perfil.js"></script>
+        <script src="../src/js/mainIniciar.js"></script>
+      
+    </body>
+</html>
