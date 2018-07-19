@@ -5,9 +5,6 @@ window.onload = () => {
 eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento click borrar publicación
-     
-     // Función likes
-    /* document.addEventListener('click', countLikesChangeColor); */
 };
 const postingContainer = document.getElementById('publications'); // contenedor de publicaciones
 

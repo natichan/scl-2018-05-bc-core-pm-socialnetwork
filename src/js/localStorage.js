@@ -31,8 +31,6 @@ function showLocalStorage() {
         postingMessages(message);    
     });
 };
-
-
   // Eliminar tareas de Local Storage
  function deletePostLocalStorage(post) {
     console.log(post);
@@ -44,7 +42,6 @@ function showLocalStorage() {
         if(deletePost === textoArr) {
               posts.splice(index, 1);
               //console.log(posts);
-               
         }
     })
     //convierte el arreglo nuevo (con la tarea eliminada) en string para volver a guardarlo en local storage
