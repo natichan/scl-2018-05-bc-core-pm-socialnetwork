@@ -17,12 +17,14 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const paragraph = document.createElement('p'); // creo un elemento parrafo
     //const imagen = document.createElement('img');  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
-
+    const user = document.createElement('a')
+    const userNameText = document.createTextNode('user.name')
+    const counter = document.createElement('a')
+    const counterNumber = document.createTextNode('')
+    
     // creo los iconos que irán en la publicación
     const likeHeart = document.createElement('i'); // creo un elemento icono
     const iconHeart = document.createTextNode('favorite') // le digo que es un texto para decirle que icono es
-    const counter = document.createElement('a')
-    const counterNumber = document.createTextNode('')
     const editButton = document.createElement('i');
     const iconEdit = document.createTextNode('border_color');
     const enlaceEdit= document.createElement('a');//se crea enlace a modificar comentario
@@ -30,13 +32,11 @@ function postingMessages(message){ // función generadora de DOM de publicación
     const iconComment = document.createTextNode('insert_comment')
     const deleteButton = document.createElement('i');
     const iconTrash = document.createTextNode('delete_forever');
-    const user = document.createElement('a')
-    const userNameText = document.createTextNode('user.name')
- 
 
-    enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
+     /* enlaceEdit.href = '/home/laboratoria/Laboratoria/scl-2018-05-bc-core-pm-socialnetwork/src/html/modificar_comentario.html?id' + '=' + 'i';// aqui le digo al enlace que me va a redireccionar a comentario.html
     //se enlaza boton de edicion con html donde se editara comentario. 
-    // atributos de mis elementos    
+    // atributos de mis elementos     */
+    
     counter.setAttribute('id', 'counterHearts');
     likeHeart.setAttribute('id', 'heart');
     likeHeart.setAttribute('class', 'material-icons btn-flat heart');
@@ -71,15 +71,13 @@ function postingMessages(message){ // función generadora de DOM de publicación
 
     function countLikesChangeColor(){
         likeHeart.addEventListener('click', () => { 
-        // compruebo si existe un contador, si no existe lo creo
         if (localStorage.counterHearts) {
          localStorage.counterHearts = parseInt(localStorage.counterHearts) + 1; // fijo como número el contador
          likeHeart.classList.add('red-text');
-        }
-        else {
+        } else {
          localStorage.counterHearts = 1; // si no existe igual a 1
         }
-        document.getElementById("counterHearts").value = localStorage.counterHearts;
+        counterHearts.innerHTML = JSON.parse(localStorage.counterHearts); // mostrar en publicación
        });
     }  
 };
@@ -114,12 +112,6 @@ function deletePost(element) {
         element.target.parentElement.remove();
         //aca debo invocar funcion de borarr elementos de local storage
         deletePostLocalStorage(element.target.parentElement.innerText); 
-    }
-};
-//funcion editar post
-function editarTarea(element) {
-    if(element.target.id === 'delete') {
-         element.target.parentElement.remove(); 
     }
 };
 
