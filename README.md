@@ -31,3 +31,5 @@ Para verificar el producto y determinar si está cumpliendo con la resolución d
 
 ## Planificación
 Para planificar la creación de la red social usamos [Trello](https://trello.com/b/ZQH5Wn1m/proyecto-3)
+
+* Para visualizar el avance del [Protecto](https://milelym.github.io/scl-2018-05-bc-core-pm-socialnetwork/src/index.html)
