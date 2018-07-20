@@ -15,7 +15,7 @@ const postingContainer = document.getElementById('publications'); // contenedor 
 function postingMessages(message){ // función generadora de DOM de publicación usuario
     const postingUser = document.createElement('div'); // creo un elemento div
     const paragraph = document.createElement('p'); // creo un elemento parrafo
-    const textoeditado = document.createElement("span");
+   
     
 
    
@@ -75,13 +75,8 @@ function postingMessages(message){ // función generadora de DOM de publicación
     postingUser.appendChild(deleteButton);
     postingContainer.appendChild(postingUser);
    
-    editPost();
-    function editPost(){
-               
-        document.getElementById('seccion1').contentEditable = 'true';
-        document.getElementById('seccion1').designMode='on';
-    
-    }
+   
+   
   
 
     var parent = document.createElement("div");
@@ -89,10 +84,9 @@ var child = document.createElement("p");
 parent.appendChild(child);
 var span = document.createElement("span");
 
-child.replaceWith(span);
 
-console.log(parent.outerHTML);
-// "<div><span></span></div>"
+
+
     
     countLikesChangeColor();
 
@@ -141,6 +135,10 @@ function deletePost(event) {
         deletePostLocalStorage(event.target.parentElement.innerText); 
     }
 };
+
+
+
+
 
 
 /* //funcion para cargar imagen
