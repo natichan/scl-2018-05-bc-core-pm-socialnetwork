@@ -1,0 +1,17 @@
+.imgperfil{
+    max-width: 50% !important;
+    height: auto !important;
+    margin:1em;
+   
+}
+nav{
+    background-color: #6ea328;
+
+}
+body, .sidenav{
+    background-color: #dfe7d5;
+}
+#isotipo{
+    height: 100%;
+    
+ }

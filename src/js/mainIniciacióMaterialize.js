@@ -9,7 +9,11 @@ $(document).ready(function(){
   });
 
   // Iniciación slider
-  $(document).ready(function(){
-    $('.slider').slider();
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true
   });
-     
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+        

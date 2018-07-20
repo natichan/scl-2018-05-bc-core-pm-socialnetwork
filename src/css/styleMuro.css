@@ -1,6 +1,5 @@
 #isotipo{
    height: 100%;
-   
 }
 h4{
     text-align: center; /* este es el estilo para titulo de hoja editar comentarios */
@@ -14,7 +13,7 @@ body, .sidenav{
     background-color: #dfe7d5;
 }
 main{
-    padding-top: 5%;
+    margin-top: 10%;
 }
 .publicationDom{
     margin-top: 4%;
@@ -26,6 +25,8 @@ main{
 a, i{
     color: black;
 }
-.slider{
-    height: 100% !important;
+.slidesFood {
+    height: 50% !important;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }

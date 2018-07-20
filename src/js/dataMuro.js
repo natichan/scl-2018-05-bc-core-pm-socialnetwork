@@ -5,10 +5,7 @@ window.onload = () => {
 eventListeners = () => {
      document.getElementById('postMessage').addEventListener('click', addPost); // evento click para enviar publicaciones
      document.addEventListener('click', deletePost); // ejecutar evento click borrar publicación
-    /*  // Editar tareas
-     document.addEventListener('click', editPost); */
-     // Función likes
-    /* document.addEventListener('click', countLikesChangeColor); */
+
 };
 const postingContainer = document.getElementById('publications'); // contenedor de publicaciones
 
@@ -22,7 +19,7 @@ function postingMessages(message){ // función generadora de DOM de publicación
     //const imagen = document.createElement('img');  //creo un elemento imagen
     const textPost = document.createTextNode(message); // creo el texto de la publicacion obtenido del mensaje escrito del usuario
     const user = document.createElement('a')
-    const userNameText = document.createTextNode('user.name')
+    const userNameText = document.createTextNode('Jessica:)')
     const counter = document.createElement('a')
     const counterNumber = document.createTextNode('')
     
@@ -92,16 +89,17 @@ var span = document.createElement("span");
 
     function countLikesChangeColor(){
         likeHeart.addEventListener('click', () => { 
-        if (localStorage.counterHearts) {
-         localStorage.counterHearts = parseInt(localStorage.counterHearts) + 1; // fijo como número el contador
-         likeHeart.classList.add('red-text');
+        if (localStorage.getItem('counterHearts')) {
+            localStorage.setItem('counterHearts', (parseInt(localStorage.getItem('counterHearts'))+1)) // fijo como número el contador
+            likeHeart.classList.add('red-text');
         } else {
          localStorage.counterHearts = 1; // si no existe igual a 1
         }
-        counterHearts.innerHTML = JSON.parse(localStorage.counterHearts); // mostrar en publicación
+        counterHearts.innerHTML = JSON.parse(localStorage.getItem('counterHearts')); // mostrar en publicación
        });
     }  
 };
+
 
 const postBox = document.getElementById('postBox').value = ''; // mantener el input de publicación vacío
 // función agregar publicación
