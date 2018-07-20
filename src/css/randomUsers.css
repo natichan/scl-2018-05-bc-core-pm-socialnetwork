@@ -2,7 +2,7 @@ body, .sidenav{
     background-color: #dfe7d5;
 }
 #usersShow, #usersShow2, #usersShow3, #usersShow4, #usersShow5{
-	width: 50%;
+	width: 90%;
 	padding:2%;
 	border:3px;
 	margin:auto;

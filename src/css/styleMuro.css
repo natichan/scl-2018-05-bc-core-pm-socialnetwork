@@ -29,3 +29,6 @@ a, i{
     margin-bottom: 2%;
     margin-top: 2%;
 }
+.btn-floating{
+    background-color: #cf621c !important;
+}
