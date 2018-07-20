@@ -1,0 +1,31 @@
+body, .sidenav{
+    background-color: #dfe7d5;
+}
+#usersShow, #usersShow2, #usersShow3, #usersShow4, #usersShow5{
+	width: 90%;
+	padding:2%;
+	border:3px;
+	margin:auto;
+    border-radius:0.5em;
+    background-color: #f5f5f5;	
+} 
+img{
+	border-radius:40%;
+    border:3px solid #6ea328;
+    
+}
+nav{
+    margin-bottom: 3%;
+    background-color: #6ea328;
+}
+#isotipo{
+    height: 100%;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+#users, #users2, #users3, #users4, #users5{
+    padding: 2%;
+}
+button{
+    background-color: #6ea328 !important;
+}
