@@ -7,7 +7,6 @@ h4{
 }
 nav{
     background-color: #6ea328;
-   /*  margin-bottom: 3%; */
 }
 body, .sidenav{
     background-color: #dfe7d5;
@@ -29,4 +28,7 @@ a, i{
     height: 50% !important;
     margin-bottom: 2%;
     margin-top: 2%;
+}
+.btn-floating{
+    background-color: #cf621c !important;
 }

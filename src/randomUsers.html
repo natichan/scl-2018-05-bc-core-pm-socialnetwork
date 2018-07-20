@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../src/css/styleMuro.css">
+        <link rel="stylesheet" href="../src/css/randomUsers.css">
         <link rel="shortcut icon" href="img/isotipo.png">
         <title>Veggie Experience</title>
         
@@ -14,9 +14,7 @@
     <body>
         <nav>
             <div class="nav-wrapper">
-                <a class="right btn-floating btn-large waves-effect waves-light white"><i class="material-icons" href="">person_add</i></a>
                 <img class= "brand-logo center responsive-img" src="img/logotipoHorizontalBordeBlanco (1).png" id="isotipo" href="#">
-                
                     <ul id="slide-out" class="sidenav">
                             <li><a href="../src/indexMuro.html" class="btn-flat black-text inicio"><i class="material-icons">home</i>Inicio</a></li>
                             <li><a href="../src/indexp.html" class="btn-flat black-text"><i class="material-icons">person</i>Perfil</a></li>
@@ -27,34 +25,33 @@
                         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
             </div>
         </nav>       
-        <div class="container slidesFood">
-        <div class="carousel carousel-slider center slider">
-                <a class="carousel-item" href="#one!"><img src="../src/img/veganHamburguer.jpg"></a>
-                <a class="carousel-item" href="#two!"><img src="../src/img/vegan-food-selection-t.jpg"></a>
-                <a class="carousel-item" href="#four!"><img src="../src/img/green-kitchen-stories-meal-inspiration.jpg"></a>
-        </div>
-    </div>
-        <main class="container grey lighten-4">
+        <div class="container">
             <div class="row">
-                <div class="input-field col s12">
-                    <input id="postBox" type="text" class="center">
-                    <label for="postBox">¿Qué tal tu día veggie?</label>
-     <!--                <div id="capa"> <img id="img1" src="" width="250px">
-                        <input id="inputFile1" type="file">  -->        
-                    <!-- <i class="material-icons" id="probando">add_photo_alternate</i> -->
-                    <button class="btn btn-lg teal light-green darken-2 right" type="button" id="postMessage">Publicar</button>
+                <div class="col s12 center"> 
+                    <div id="users">
+                        <div id="usersShow" class="responsive-img center"></div>
+                        <button class="waves-effect btn-small">Agregar amigo</button>
+                    </div>
+                    <div id="users2">
+                        <div id="usersShow2" class="responsive-img center"></div>
+                        <button class="waves-effect btn-small">Agregar amigo</button>
+                    </div>
+                    <div id="users3">
+                        <div id="usersShow3" class="responsive-img center"></div>
+                        <button class="waves-effect btn-small">Agregar amigo</button>
+                    </div>
+                    <div id="users4">
+                        <div id="usersShow4" class="responsive-img center"></div>
+                        <button class="waves-effect btn-small">Agregar amigo</button>
+                    </div>
+                    <div id="users5">
+                        <div id="usersShow5" class="responsive-img center"></div>
+                        <button class="waves-effect btn-small">Agregar amigo</button>
                     </div>
                 </div>
-        <!-- </div -->
-        </main>
-        <div class="divider grey"></div>
-        <section class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div id="publications"></div>
-                </div>
-            </div>
-        </section>
+            </div>                   
+        </div>
+    <script src="person.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
         <script>
           // Initialize Firebase
@@ -71,10 +68,9 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <script src="../src/js/dataMuro.js"></script>
+        <script src="../src/js/randomUsers.js"></script>
         <script src="../src/js/localStorage.js"></script>
         <script src="../src/js/mainIniciacióMaterialize.js"></script>
-        
-       
-</body>
+        <script src="../src/js/mainIniciar.js"></script>
     </body>
 </html>
