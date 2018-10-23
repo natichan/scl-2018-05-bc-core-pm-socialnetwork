@@ -1,5 +1,9 @@
 # Red Social VEGGIE EXPERIENCE
 
+Red social para vegetarianos y personas en transición a este estilo de vida, podrás tener tu propia sesión, comentar y hacer amigos que compartan tus inquietudes.
+![screenshot from 2018-10-23 11-00-59](https://user-images.githubusercontent.com/39122711/47365979-171bfb80-d6b3-11e8-9120-d8e1973902e3.png)
+
+## Explicación
 En esta oportunidad realizaremos una red social sobre alimentación. El objetivo de nuestro proyecto es crear una red social para veganos, vegetarianos, y personas interesadas en este estilo de vida. Con este producto queremos proporcionarles a los usuarios un medio de comunicación donde puedan apoyarse e intercambiar sus experiencias, inquietudes y descubrimientos.
 
 En definitiva la principal funcionalidad del producto es brindar un medio de comunicación eficaz, crear una red donde las personas puedan compartir sus experiencias, demostrar que no son minoría, que existe una gran comunidad que necesita apoyo y ser escuchada.
